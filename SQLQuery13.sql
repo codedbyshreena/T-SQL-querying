@@ -73,7 +73,7 @@ INNER JOIN RESULT R
 ON S.RNO = R.RNO
 GROUP BY BRANCH
 
---12. Display average result of CE and ME branch. 
+--12. Display average result of CE and(or) ME branch. 
 SELECT BRANCH, AVG(SPI) AS AVG_SPI
 FROM STUDENT_INFO S
 INNER JOIN RESULT R

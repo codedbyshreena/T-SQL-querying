@@ -174,11 +174,11 @@ FROM EMPLOYEE
 WHERE FIRSTNAME LIKE '%H%'
 
 --27. Create a view for the employees whose first name contains vowels. 
-CREATE VIEW EMPLOYEES_FIRSTNAME
+CREATE OR ALTER VIEW EMPLOYEES_FIRSTNAME
 AS 
 SELECT *
 FROM EMPLOYEE
-WHERE FIRSTNAME LIKE '[AEIOU]'
+WHERE FIRSTNAME LIKE '%[AEIOU]%'
 
 --28. Create a view FourLetter_Name having EID, FirstName and Department columns in which FirstName 
 --consists of four letters. 

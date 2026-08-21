@@ -1,7 +1,7 @@
 --From the table STUDENT perform the following queries:  
 
 --Part – A: 
-SELECT * FROM STUDENT
+SELECT * FROM STUDENT;
 --1. Display all students whose SPI is greater than 8. 
 WITH HIGH_SPI AS 
 ( SELECT STDID, SNAME, CITY, SPI, BRANCH
@@ -9,7 +9,7 @@ WITH HIGH_SPI AS
   WHERE SPI > 8
 )
 SELECT * 
-FROM HIGH_SPI
+FROM HIGH_SPI;
 
 --2. Display average SPI of all students. 
 WITH AVG_SPI AS 
@@ -17,7 +17,7 @@ WITH AVG_SPI AS
   FROM STUDENT
 )
 SELECT * 
-FROM AVG_SPI 
+FROM AVG_SPI;
 
 --3. Display total number of students in each branch. 
 WITH TOTALSTU AS 
@@ -26,7 +26,7 @@ WITH TOTALSTU AS
   GROUP BY BRANCH
 )
 SELECT *
-FROM TOTALSTU
+FROM TOTALSTU;
 
 --4. Display students who belong to RAJKOT city. 
 WITH STU AS 
@@ -35,7 +35,7 @@ WITH STU AS
   WHERE CITY = 'RAJKOT'
 )
 SELECT *
-FROM STU
+FROM STU;
 
 --5. Find branch names that appear more than once. 
 WITH STU AS 
@@ -46,7 +46,7 @@ WITH STU AS
 )
 SELECT *
 FROM STU 
-WHERE C > 1
+WHERE C > 1;
 
 --6. Display row number for each student.
 WITH ROW_STU AS
@@ -55,7 +55,7 @@ WITH ROW_STU AS
   FROM STUDENT
 )
 SELECT *
-FROM ROW_STU
+FROM ROW_STU;
 
 --7. Display top 3 students based on SPI. 
 WITH TOP_STU AS
@@ -93,7 +93,7 @@ WHERE S.SPI = MS.MSPI
    FROM STUDENT
 )
 SELECT * 
-FROM B_RANK
+FROM B_RANK;
 
 --Part – B: 
 
@@ -105,7 +105,7 @@ WITH STD AS
   HAVING BRANCH = 'COMPUTER'
 )
 SELECT * 
-FROM STD
+FROM STD;
 
 --12. Display students whose SPI is greater than average SPI of his/her branch.
 WITH B_AVG AS (

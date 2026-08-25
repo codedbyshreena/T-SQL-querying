@@ -163,10 +163,36 @@ AND R.SPI > ALL (SELECT AVG(SPI) FROM RESULT R1
 --Part – C:
 
 --23. Display the students whose SPI is greater than at least one student of every branch.  
+SELECT S1.STDID, S1.SNAME, S1.SPI, S1.BRANCH
+FROM STUDENT S1
+WHERE S1.SPI > ALL (
+    SELECT MIN(S2.SPI)
+    FROM STUDENT S2
+    WHERE S2.BRANCH IS NOT NULL
+    GROUP BY S2.BRANCH
+)
 
 --24. Display the students whose SPI is less than all students of CE branch.  
+SELECT STDID, SNAME, SPI, BRANCH
+FROM STUDENT
+WHERE SPI < ALL (
+    SELECT SPI
+    FROM STUDENT
+    WHERE BRANCH = 'CIVIL'
+)
 
 --25. Display the branch that contains the student with highest SPI.  
+SELECT BRANCH
+FROM STUDENT
+WHERE SPI = (SELECT MAX(SPI) FROM STUDENT);
 
 --26. Display the students whose SPI is less than the SPI of every student in CE branch and greater than every 
 --student in ME branch.
+SELECT STDID, SNAME, SPI, BRANCH
+FROM STUDENT
+WHERE SPI < ALL (
+    SELECT SPI FROM STUDENT WHERE BRANCH = 'CIVIL'
+)
+AND SPI > ALL (
+    SELECT SPI FROM STUDENT WHERE BRANCH = 'MECHANICAL'
+)
